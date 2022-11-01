@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .box {
+            width: 50px;
+            height: 50px;
+            background: #f3e6e61c url(dianzan.png) no-repeat;
+            background-position: left;
+            background-size: cover;
+            cursor: pointer;
+        }
+
+        .boxactive {
+            background-position: right;
+            transition: background .75s steps(28);
+            /* 根据图片有多少帧，比如我这张图片有29张小图，那就是填28 */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box" class="box"></div>
+    <script>
+        var box = document.querySelectorAll('.box')
+        box[0].addEventListener('click', () => {
+            box[0].classList.add('boxactive')
+            setTimeout(() => {
+                box[0].classList.remove('boxactive')
+            }, 750)
+            // 750ms后移除class：boxactive
+        })
+    </script>
+</body>
+
+</html>
